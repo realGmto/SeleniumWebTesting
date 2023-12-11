@@ -1,5 +1,6 @@
 package SwagLabsLogin;
 
+import Base.BaseClassTests;
 import PageObjectModel.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -7,17 +8,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class AccessWithoutLoginTests {
-    String url;
-    WebDriver driver;
+public class AccessWithoutLoginTests extends BaseClassTests {
     LoginPage loginPage;
-
+    @Parameters("browser")
     @BeforeTest
-    public void Setup(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+    public void Setup(String browser){
+        super.Setup(browser);
     }
 
     @Test
@@ -33,7 +32,7 @@ public class AccessWithoutLoginTests {
     }
 
     @Test
-    public  void AccessCartPage(){
+    public void AccessCartPage(){
         url ="https://www.saucedemo.com/cart.html";
         driver.get(url);
 
@@ -42,10 +41,5 @@ public class AccessWithoutLoginTests {
         String actual = loginPage.GetErrorMessage();
 
         Assert.assertEquals(actual, "Epic sadface: You can only access '/cart.html' when you are logged in.");
-    }
-
-    @AfterTest
-    public void TearDown(){
-        driver.quit();
     }
 }

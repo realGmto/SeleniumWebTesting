@@ -1,5 +1,6 @@
 package SwagLabsLogin;
 
+import Base.BaseClassTests;
 import PageObjectModel.HomePage;
 import PageObjectModel.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -9,20 +10,20 @@ import org.openqa.selenium.chromium.ChromiumDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class UserLoginTests {
-    String url= "https://www.saucedemo.com";
-    WebDriver driver;
+public class UserLoginTests extends BaseClassTests {
     LoginPage loginPage;
     String password = "secret_sauce";
-
+    @Parameters("browser")
     @BeforeTest
-    public void Setup(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+    public void Setup(String browser){
+        super.Setup(browser);
+
+        url= "https://www.saucedemo.com";
 
         driver.get(url);
 
@@ -56,10 +57,5 @@ public class UserLoginTests {
         String actual = loginPage.LoginInvalidUser(username,password);
 
         Assert.assertEquals(actual,"Epic sadface: Sorry, this user has been locked out.");
-    }
-
-    @AfterTest
-    public void Teardown(){
-        driver.quit();
     }
 }
