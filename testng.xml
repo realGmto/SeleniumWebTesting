@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Testing Swag lab">
-    <test name="Login">
+    <test name="Login-chrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="SwagLabsLogin.UserLoginTests"/>
+            <class name="SwagLabsLogin.AccessWithoutLoginTests"></class>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Login-edge">
+        <parameter name="browser" value="edge"></parameter>
         <classes>
             <class name="SwagLabsLogin.UserLoginTests"/>
             <class name="SwagLabsLogin.AccessWithoutLoginTests"></class>
