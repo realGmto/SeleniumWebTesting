@@ -4,15 +4,32 @@
     <test name="Login-chrome">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="SwagLabsLogin.UserLoginTests"/>
-            <class name="SwagLabsLogin.AccessWithoutLoginTests"></class>
+            <class name="Login.UserLoginTests"/>
+            <class name="Login.AccessWithoutLoginTests"></class>
         </classes>
-    </test> <!-- Test -->
+    </test>
+
+    <test name="Main-chrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="MainPage.ListProductsTests"></class>
+        </classes>
+    </test>
+
+
+
     <test name="Login-edge">
         <parameter name="browser" value="edge"></parameter>
         <classes>
-            <class name="SwagLabsLogin.UserLoginTests"/>
-            <class name="SwagLabsLogin.AccessWithoutLoginTests"></class>
+            <class name="Login.UserLoginTests"/>
+            <class name="Login.AccessWithoutLoginTests"></class>
         </classes>
-    </test> <!-- Test -->
+    </test>
+
+    <test name="Main-edge">
+        <parameter name="browser" value="edge"></parameter>
+        <classes>
+            <class name="MainPage.ListProductsTests"/>
+        </classes>
+    </test>
 </suite> <!-- Suite -->

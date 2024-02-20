@@ -75,12 +75,14 @@ else if (browser.equalsIgnoreCase("edge")) {
 2. Navigate to testng.xml and add new ```<test></test>``` tag which will have the name: [part that is to be tested]-[name of the new browser]
 
 3. Inside <test></test> add ```<parameter></parameter>``` tag in which you will add name browser and value which is the name of the new browser. Example:
+
 ```xml
-    <test name="Login-chrome">
-        <parameter name="browser" value="chrome"></parameter>
-        <classes>
-            <class name="SwagLabsLogin.UserLoginTests"/>
-            <class name="SwagLabsLogin.AccessWithoutLoginTests"></class>
-        </classes>
-    </test>
+
+<test name="Login-chrome">
+    <parameter name="browser" value="chrome"></parameter>
+    <classes>
+        <class name="Login.UserLoginTests"/>
+        <class name="Login.AccessWithoutLoginTests"></class>
+    </classes>
+</test>
 ```
