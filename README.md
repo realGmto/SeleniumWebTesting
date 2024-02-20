@@ -2,7 +2,7 @@
 
 
 ## Page Object Model
-Page object model or POM is an design pattern in which webpages are represented as classes, and elements on the page are defined as variables on the class. 
+Page object model or POM is a design pattern in which webpages are represented as classes, and elements on the page are defined as variables on the class. 
 ### Setup
 Steps to create a class which represents webpage. This will be an example of an login webpage:
 1. Create new class inside PageObjectModel package.
