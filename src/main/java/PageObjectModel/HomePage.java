@@ -16,6 +16,11 @@ public class HomePage {
     private WebDriver driver;
     @FindBy(xpath = "/html/body/div/div/div/div[1]/div[2]/span")
     private WebElement title;
+    @FindBy(className = "inventory_item")
+    private List<WebElement> elements;
+
+    @FindBy(className = "shopping_cart_link")
+    private WebElement cart;
     public HomePage(WebDriver driver) {
         this.driver = driver;
         if (!driver.getTitle().equals("Swag Labs")) {
@@ -31,7 +36,6 @@ public class HomePage {
 
     public List<Product> getProducts(){
         List<Product> products = new ArrayList<>();
-        List<WebElement> elements = driver.findElements(By.className("inventory_item"));
 
         for (WebElement element : elements){
             Product product = new Product(element);
@@ -39,5 +43,18 @@ public class HomePage {
         }
 
         return products;
+    }
+
+    public CartPage MoveToCart() {
+        cart.click();
+        return new CartPage(driver);
+    }
+
+    public List<WebElement> GetElements() {
+        return elements;
+    }
+
+    public void AddProductToCart(WebElement webElement) {
+        webElement.findElement(By.className("btn")).click();
     }
 }
