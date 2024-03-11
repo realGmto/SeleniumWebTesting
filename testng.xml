@@ -13,6 +13,7 @@
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="MainPage.ListProductsTests"></class>
+            <class name="MainPage.AddProductsToCartTests"></class>
         </classes>
     </test>
 
@@ -30,6 +31,7 @@
         <parameter name="browser" value="edge"></parameter>
         <classes>
             <class name="MainPage.ListProductsTests"/>
+            <class name="MainPage.AddProductsToCartTests"></class>
         </classes>
     </test>
 </suite> <!-- Suite -->
